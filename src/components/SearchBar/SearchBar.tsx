@@ -1,22 +1,23 @@
-import { useState } from "react";
-
+import { useState, ChangeEvent, FormEvent } from "react";
 import toast, { Toaster } from "react-hot-toast";
 import s from "./SearchBar.module.css";
 
-const SearchBar = ({ setQuery }) => {
-  const [inputValue, setInputValue] = useState("");
+interface SearchBarProps {
+  setQuery: (query: string) => void;
+}
 
- 
+const SearchBar: React.FC<SearchBarProps> = ({ setQuery }) => {
+  const [inputValue, setInputValue] = useState<string>("");
+
   const notify = () => toast("Type something to find");
 
-  const handleChange = (e) => {
+  const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
     setInputValue(e.target.value);
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
 
-   
     if (!inputValue.trim()) {
       notify();
     } else {
@@ -24,7 +25,6 @@ const SearchBar = ({ setQuery }) => {
       resetInput();
     }
   };
-
 
   const resetInput = () => {
     setInputValue('');
@@ -35,8 +35,7 @@ const SearchBar = ({ setQuery }) => {
       <header className={s.header}>
         <form onSubmit={handleSubmit} className={s.form}>
           <div className={s.inputContainer}>
-          <button className={s.btn} type="submit">
-              
+            <button className={s.btn} type="submit">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 width="20"
