@@ -48,12 +48,14 @@ const ImageModal: React.FC<ImageModalProps> = ({ isOpen, closeModal, image }) =>
       contentLabel="Image modal"
       shouldCloseOnOverlayClick={true}
     >
-      {image && (
+      {image ? (
         <img
           src={image.urls.full}
           alt={image.alt_description}
           className={s.img}
         />
+      ) : (
+        <div>No Image Available</div> // Отображение, если нет изображения
       )}
     </Modal>
   );
