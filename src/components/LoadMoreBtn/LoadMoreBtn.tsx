@@ -1,8 +1,8 @@
+import React from 'react';
 import s from "./LoadMoreBtn.module.css";
+import { LoadMoreBtnProps } from "../App/App.types";
 
-
-
-const LoadMoreBtn = ({ setPage }) => {
+const LoadMoreBtn: React.FC<LoadMoreBtnProps> = ({ setPage }) => {
   const handleLoadMore = () => {
     setPage((prevPage) => prevPage + 1);
   };
@@ -13,7 +13,5 @@ const LoadMoreBtn = ({ setPage }) => {
     </button>
   );
 };
-
-
 
 export default LoadMoreBtn;
