@@ -1,21 +1,45 @@
-export interface Images {
+export interface Image {
   id: string;
   urls: {
-    small: string;
-    regular: string;
+    small: string; 
+    regular: string; 
   };
   user: {
-    name: string;
+    name: string;    
   };
-  likes?: number;    
-  created_at?: string;   
+  likes?: number;           
+  created_at?: string;      
   alt_description?: string; 
 }
 
+
 export interface FetchImagesResponse {
-  results: Images[];       
-  total: number;          
-  total_pages: number;    
+  results: Image[];      
+  total: number;         
+  total_pages: number;   
 }
 
-export type OnImageClick = (image: Images) => void;
+
+export type OnImageClick = (image: Image) => void;
+
+
+
+export interface SearchBarProps {
+  setQuery: (query: string) => void;
+}
+
+export interface ImageGalleryProps {
+  images: Image[];                  
+  totalImages: number;             
+  hasSearched: boolean;           
+  openModal: (image: Image) => void; 
+}
+
+export interface ImageModalProps {
+  image: Image | null;              
+  onClose: () => void;              
+}
+
+export interface LoadMoreBtnProps {
+  setPage: React.Dispatch<React.SetStateAction<number>>;
+}

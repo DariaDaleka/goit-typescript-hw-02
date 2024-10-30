@@ -1,10 +1,11 @@
 import React from 'react';
 import ImageCard from '../ImageCard/ImageCard';
 import s from './ImageGallery.module.css';
-import { Images, OnImageClick } from '../../types';
+import { Image, OnImageClick } from '../../types';
+
 
 interface ImageGalleryProps {
-  images: Images[];
+  images: Image[];
   totalImages: number;
   hasSearched: boolean;
   openModal: OnImageClick;

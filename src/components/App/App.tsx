@@ -6,17 +6,17 @@ import ErrorMessage from '../ErrorMessage/ErrorMessage';
 import Loader from '../Loader/Loader';
 import { fetchImages } from '../../services/api';
 import { useEffect, useState } from 'react';
-import { AppImage, FetchImagesResponse } from './App.types';
+import { Image, FetchImagesResponse } from '../../types';
 
 const App: React.FC = () => {
-  const [images, setImages] = useState<AppImage[]>([]);
+  const [images, setImages] = useState<Image[]>([]);
   const [isLoading, setIsLoading] = useState<boolean>(false);
   const [isError, setIsError] = useState<boolean>(false);
   const [query, setQuery] = useState<string>("");
   const [page, setPage] = useState<number>(1);
   const [totalImages, setTotalImages] = useState<number>(0);
   const [hasSearched, setHasSearched] = useState<boolean>(false);
-  const [selectedImage, setSelectedImage] = useState<AppImage | null>(null);
+  const [selectedImage, setSelectedImage] = useState<Image | null>(null);
 
   useEffect(() => {
     if (!query) return;
@@ -50,7 +50,7 @@ const App: React.FC = () => {
     setPage(1);
   };
 
-  const openModal = (image: AppImage): void => {
+  const openModal = (image: Image): void => {
     setSelectedImage(image);
   };
 

@@ -1,7 +1,8 @@
 import { useState } from "react";
 import toast, { Toaster } from "react-hot-toast";
 import s from "./SearchBar.module.css";
-import { SearchBarProps } from "../App/App.types";
+import { SearchBarProps } from '../../types';
+
 
 const SearchBar: React.FC<SearchBarProps> = ({ setQuery }) => {
   const [inputValue, setInputValue] = useState<string>("");

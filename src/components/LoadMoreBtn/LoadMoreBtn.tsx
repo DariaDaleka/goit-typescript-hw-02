@@ -1,6 +1,7 @@
 import React from 'react';
 import s from "./LoadMoreBtn.module.css";
-import { LoadMoreBtnProps } from "../App/App.types";
+import { LoadMoreBtnProps } from '../../types';
+
 
 const LoadMoreBtn: React.FC<LoadMoreBtnProps> = ({ setPage }) => {
   const handleLoadMore = () => {
